@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practica_01/src/app.dart';
+import 'package:computonube_padilla/src/app.dart';
 
 void main() {
   runApp(MyApp());
