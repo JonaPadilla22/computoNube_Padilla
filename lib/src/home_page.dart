@@ -1,3 +1,4 @@
+
 import 'package:computonube_padilla/src/datos_recibidos.dart';
 import 'package:flutter/material.dart';
 
@@ -7,16 +8,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ctrlnom = new TextEditingController();
-  final data = Data(nombre: '', sexo: '');
-  int _valor = 1;
+  final ctrlpeso = new TextEditingController();
+  final ctrlest = new TextEditingController();
+  final data = Data(peso: 0.0, estatura: 0.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange[200],
-        title: Text('Practica 04'),
+        backgroundColor: Colors.pink[200],
+        title: Text('Miniproyecto 01'),
         centerTitle: true
       ),
       body: Center(
@@ -24,47 +25,34 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              controller: ctrlnom,
-              keyboardType: TextInputType.name,
+              controller: ctrlpeso,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                hintText: 'Ingresa el nombre',
+                hintText: 'Ingresa el peso (kg)',
                 contentPadding: EdgeInsets.all(20)
               )
             ),
             SizedBox(height: 20),
-            DropdownButton(
-              value: _valor,
-              items: [
-                DropdownMenuItem(
-                  child: Text('Hombre'),
-                  value: 1
-                ),
-                DropdownMenuItem(
-                  child: Text('Mujer'),
-                  value: 2
-                )
-              ], 
-              onChanged: (int? selected) {
-                setState(() {
-                  _valor = selected!;
-                });
-              }
+            TextField(
+              controller: ctrlest,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                hintText: 'Ingresa la estatura (mts)',
+                contentPadding: EdgeInsets.all(20)
+              )
             ),
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.orange[200],
+                primary: Colors.green[200],
                 onPrimary: Colors.white
               ),
-              child: Text('Enviar'),
+              child: Text('Calcular'),
               onPressed: () {
                 setState(() {
-                  data.nombre = ctrlnom.text;
-                  if(_valor == 1) {
-                    data.sexo = 'Hombre';
-                  }else {
-                    data.sexo = 'Mujer';
-                  }
+                  data.peso = double.parse(ctrlpeso.text);
+                  data.estatura = double.parse(ctrlest.text);
+                  
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => DatosPage(data: data)));
                 });
@@ -78,7 +66,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class Data {
-  String nombre;
-  String sexo;
-  Data({required this.nombre, required this.sexo});
+  double peso;
+  double estatura;
+  Data({required this.peso, required this.estatura});
 }
