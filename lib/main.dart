@@ -5,7 +5,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Practica 16', 
+      title: 'Practica 17', 
       home: ListViewPage(), 
       debugShowCheckedModeBanner: false
     );
