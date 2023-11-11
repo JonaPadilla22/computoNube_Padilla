@@ -1,5 +1,5 @@
-import 'package: flutter/material.dart'; 
-import 'package:practica_19v2/src/details_page.dart';
+import 'package:flutter/material.dart'; 
+import 'package:computonube_padilla/src/details_page.dart';
 class MyListTile extends StatelessWidget {
   var titulo;
   var subtitulo;
@@ -26,7 +26,7 @@ class MyListTile extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(@xFF101012), 
+            color: Color(0xFF101012), 
             offset: Offset(-12, 12), 
             blurRadius: 8,
           ),
@@ -55,6 +55,6 @@ class MyListTile extends StatelessWidget {
           );
         }
       ),
-    )
+    );
   }
 }
